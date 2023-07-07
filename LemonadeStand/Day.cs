@@ -11,6 +11,19 @@ namespace LemonadeStand
         Weather weather;
         List<Customer> customers;
 
-
+        public Weather weather
+        {
+            get
+            {
+                return weather;
+            }
+        }
+        public List<Customer> Customers
+        {
+            get
+            {
+                return customers;
+            }
+        }
     }
 }

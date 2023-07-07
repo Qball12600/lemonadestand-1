@@ -22,36 +22,32 @@ namespace LemonadeStand
         }
 
         // member methods (CAN DO)
-        public double priceoflemonade
+        public Wallet Wallet
         {
             set
             {
-                priceoflemonade = value;
+                Wallet = value;
             }
             get
             {
-                return priceoflemonade;
+                return wallet;
             }
-            
-        public inventory Inventory
+        }   
+        public Inventory Inventory
+        {
+            get
+            {
+                return inventory;
+            }
+
+        }
+        public Recipe Recipe
         {
             get
             {
                 return recipe;
             }
-            
-
-        public Recipe recipe
-        {
-            set
-            {
-
-            }
-            get
-            {
-                return recipe;
-            }
         }
-        }
+        
     }
 }

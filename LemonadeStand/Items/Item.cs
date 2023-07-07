@@ -9,8 +9,13 @@ namespace LemonadeStand
     abstract class Item
     {
         // member variables (HAS A)
-        public string name;
-
+        public string name
+        {
+            get
+            {
+                return name;
+            }
+        }
         // constructor (SPAWNER)
         static Item()
         {
