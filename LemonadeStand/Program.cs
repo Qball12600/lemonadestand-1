@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            
+            Game game = new Game();
+            //Calling the RunGame() method
+            game.RunGame();
         }
     }
 }

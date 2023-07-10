@@ -34,5 +34,24 @@ namespace LemonadeStand
         {
             money += income;
         }
+        public bool TransferMoney(Customer receiver, int amountToTransfer)
+        {
+            if (amountToTransfer <= money)
+            {
+                money -= amountToTransfer;
+                receiver.AcceptMoney(amountToTransfer);
+                Console.WriteLine($"{Customer} transferred {amountToTransfer} to {receiver.Wallet}.");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"Transfer failed. {name} has insuffient funds.");
+                return false;
+            }
+
+        }
+
     }
+
+
 }
