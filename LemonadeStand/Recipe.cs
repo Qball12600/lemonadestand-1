@@ -6,28 +6,36 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
+    //single responsibility principle SOLID
     internal class Recipe
     {
         // member variables (HAS A)
-        public int numberOfLemons;
-        public int numberOfSugarCubes;
-        public int numberOfIceCubes;
-        public double price;
+        public int NumberOfLemons { get; private set; }
+        public int NumberOfSugarCubes { get; private set; }
+        public int NumberOfIceCubes { get; private set; }
+        public double Price { get; private set; }
 
 
         // constructor (SPAWNER)
-        public Recipe()
+        public Recipe(int numberOfLemons, int numberOfSugarCubes, int numberOfIceCubes, double price)
         {
-            numberOfLemons = 2;
-            numberOfSugarCubes = 4;
-            numberOfIceCubes = 10;
-            price = 1;
+            this.NumberOfLemons = numberOfLemons;
+            this.NumberOfSugarCubes = numberOfSugarCubes;
+            this.NumberOfIceCubes = numberOfIceCubes;
+            this.Price = price;
         }
-
         //Member Methods (CAN DO)
+        public void AdjustRecipe(int lemons, int sugarCubes, int iceCubes, double price)
+        {
+            NumberOfLemons = lemons;
+            NumberOfSugarCubes = sugarCubes;
+            NumberOfIceCubes = iceCubes;
+            Price = price;
+        }
+       
         public void DisplayRecipe()
         {
-            Console.WriteLine($"Your recipe currently consists of:\n{numberOfLemons} lemons per pitcher\n{numberOfSugarCubes} sugar cubes per pitcher\n{numberOfIceCubes} ice cubes per pitcher");
+            Console.WriteLine($"Your recipe currently consists of:\n{NumberOfLemons} lemons per pitcher\n{NumberOfSugarCubes} sugar cubes per pitcher\n{NumberOfIceCubes} ice cubes per pitcher");
         }
 
     }

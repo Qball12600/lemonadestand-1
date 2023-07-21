@@ -6,18 +6,38 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
+    //single responsibility principle SOLID
     class Lemon : Item
     {
         // member variables (HAS A)
-
+        public int Quantity { get; private set; }
+     
+        
         // constructor (SPAWNER)
-        public Lemon()
+        public Lemon() : base("Lemon")
         {
-            name = "lemon";
-            pricePerLemon = 0;
-            quantity = 0;
+            Quantity = 0;
+            
         }
-
         // member methods (CAN DO)
+        public void AddLemon(int amount)
+        {
+            Quantity += amount;
+        }
+        public void RemoveLemon(int amount)
+        {
+            if (Quantity >= amount)
+            {
+                Quantity -= amount;
+            }
+            else
+            {
+                Console.WriteLine("Insuffienct lemon in inventory.");
+
+            }
+        }
+       
+
+       
     }
 }

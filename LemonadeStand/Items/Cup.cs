@@ -6,18 +6,38 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
+    //single responsibility principle SOLID
     class Cup : Item
     {
+
         // member variables (HAS A)
+        public int Quantity { get; private set; }
+        
+       
 
         // constructor (SPAWNER)
-        public Cup()
+        public Cup(): base ("Cup")
         {
-            name = "cup";
-            pricePerCup = 0;
-            quantity = 0;
+            Quantity = 0;
+           
         }
-
         // member methods (CAN DO)
+        public void AddCups(int amount)
+        {
+            Quantity += amount;
+        }
+        public void RemoveCups(int amount)
+        {
+            if (Quantity >=amount)
+            {
+                Quantity -= amount;
+            }
+            else
+            {
+                Console.WriteLine("Insufficient cups in inventory.");
+
+            }
+        } 
+       
     }
 }

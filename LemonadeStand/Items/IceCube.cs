@@ -6,18 +6,39 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
+    //single responsibility principle SOLID
     class IceCube : Item
     {
         // member variables (HAS A)
+        public int Quantity { get; private set; }
+      
 
         // constructor (SPAWNER)
-        public IceCube()
+        public IceCube() : base("IceCube")
         {
-            name = "ice cube";
-            pricePerIceCube = 0;
-            quantity = 0;
+            Quantity = 0;
+           
+        }  
+        public void AddIceCube(int amount)
+        {
+            Quantity += amount;
         }
-
         // member methods (CAN DO)
+        public void RemoveIceCube(int amount)
+        {
+            if (Quantity >= amount)
+            {
+                Quantity -= amount;
+            }
+            else
+            {
+                Console.WriteLine("Insuffienct icecubes in inventory.");
+
+            }
+        }
+      
+        
+
+        
     }
 }

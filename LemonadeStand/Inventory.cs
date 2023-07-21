@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
+    //single responsibility principle SOLID
     class Inventory
     {
         // member variables (HAS A)
@@ -26,38 +27,7 @@ namespace LemonadeStand
             AddIceCubesToInventory(100);
             AddCupsToInventory(30);
         }
-        public Cup cup
-        {
-            get
-            {
-                return cup;
-            }
-        }
-
-        public Lemon lemon
-        {
-            get
-            {
-                return lemon;
-            }
-        }
-
-        public IceCube iceCube
-        {
-            get
-            {
-                return iceCube;
-            }
-        }
-
-        public SugarCube sugarcube
-        {
-            get
-            {
-                return sugarcube;
-            }
-        }
-        // member methods (CAN DO)
+        
         public void AddLemonsToInventory(int numberOfLemons)
         {
             for(int i = 0; i < numberOfLemons; i++)

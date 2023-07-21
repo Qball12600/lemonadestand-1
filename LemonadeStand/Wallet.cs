@@ -6,50 +6,30 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
+    //single responsibility principle   SOLID
     class Wallet
     {
         // member variables (HAS A)
-        private double money;
-        public double Money
-        {
-            get
-            {
-                return money;
-            }
-        }
+        public double Money { get; private set;}
+       
 
         //constructor (SPAWNER)
         public Wallet()
         {
-            money = 20.00;
+            Money = 20.00;
         }
 
         //Member Methods (CAN DO)
         public void PayMoneyForItems(double transactionAmount)
         {
-            money -= transactionAmount;
+            Money -= transactionAmount;
         }
 
         public void AcceptMoney(double income)
         {
-            money += income;
+            Money += income;
         }
-        public bool TransferMoney(Customer receiver, int amountToTransfer)
-        {
-            if (amountToTransfer <= money)
-            {
-                money -= amountToTransfer;
-                receiver.AcceptMoney(amountToTransfer);
-                Console.WriteLine($"{Customer} transferred {amountToTransfer} to {receiver.Wallet}.");
-                return true;
-            }
-            else
-            {
-                Console.WriteLine($"Transfer failed. {name} has insuffient funds.");
-                return false;
-            }
-
-        }
+        
 
     }
 

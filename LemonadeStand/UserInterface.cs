@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
+    //single responsibility principle SOLID
+
+   
     static class UserInterface
     {
+        //Member Methods
         public static int GetNumberOfItems(string itemsToGet)
         {
             bool userInputIsAnInteger = false;
@@ -15,7 +19,7 @@ namespace LemonadeStand
 
             while (!userInputIsAnInteger || quantityOfItem < 0)
             {
-                Console.WriteLine("How many " + itemsToGet + " would you like to buy?");
+                Console.WriteLine($"How many " + itemsToGet + " would you like to buy?");
                 Console.WriteLine("Please enter a positive integer (or 0 to cancel):");
 
                 userInputIsAnInteger = Int32.TryParse(Console.ReadLine(), out quantityOfItem);

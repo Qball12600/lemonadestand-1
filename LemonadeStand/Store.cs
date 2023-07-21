@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
+    //single responsibility principle SOLID
+    //also demonstraes open/closed principle
     class Store
     {
         // member variables (HAS A)
@@ -22,47 +24,15 @@ namespace LemonadeStand
             pricePerIceCube = .01;
             pricePerCup = .25;
         }
-
-        public Cup cup
-        {
-            get
-            {
-                return cup;
-            }
-        }
-
-        public Lemon lemon
-        {
-            get
-            {
-                return lemon;
-            }
-        }
-
-        public SugarCube sugarCube
-        {
-            get
-            {
-                return sugarCube;
-            }
-        }
-
-        public IceCube icecube
-        {
-            get
-            {
-                return icecube;
-            }
-        }
-        // member methods (CAN DO)
+        //Member Methods
         public void SellLemons(Player player)
         {
             int lemonsToPurchase = UserInterface.GetNumberOfItems("lemons");
             double transactionAmount = CalculateTransactionAmount(lemonsToPurchase, pricePerLemon);
-            if(player.wallet.Money >= transactionAmount)
+            if(player.Wallet.Money >= transactionAmount)
             {
-                player.wallet.PayMoneyForItems(transactionAmount);
-                player.inventory.AddLemonsToInventory(lemonsToPurchase);
+                player.Wallet.PayMoneyForItems(transactionAmount);
+                player.Inventory.AddLemonsToInventory(lemonsToPurchase);
             }
         }
 
@@ -70,10 +40,10 @@ namespace LemonadeStand
         {
             int sugarToPurchase = UserInterface.GetNumberOfItems("sugar");
             double transactionAmount = CalculateTransactionAmount(sugarToPurchase, pricePerSugarCube);
-            if(player.wallet.Money >= transactionAmount)
+            if(player.Wallet.Money >= transactionAmount)
             {
-                PerformTransaction(player.wallet, transactionAmount);
-                player.inventory.AddSugarCubesToInventory(sugarToPurchase);
+                PerformTransaction(player.Wallet, transactionAmount);
+                player.Inventory.AddSugarCubesToInventory(sugarToPurchase);
             }
         }
 
@@ -81,10 +51,10 @@ namespace LemonadeStand
         {
             int iceCubesToPurchase = UserInterface.GetNumberOfItems("ice cubes");
             double transactionAmount = CalculateTransactionAmount(iceCubesToPurchase, pricePerIceCube);
-            if(player.wallet.Money >= transactionAmount)
+            if(player.Wallet.Money >= transactionAmount)
             {
-                PerformTransaction(player.wallet, transactionAmount);
-                player.inventory.AddIceCubesToInventory(iceCubesToPurchase);
+                PerformTransaction(player.Wallet, transactionAmount);
+                player.Inventory.AddIceCubesToInventory(iceCubesToPurchase);
             }
         }
 
@@ -92,10 +62,10 @@ namespace LemonadeStand
         {
             int cupsToPurchase = UserInterface.GetNumberOfItems("cups");
             double transactionAmount = CalculateTransactionAmount(cupsToPurchase, pricePerCup);
-            if(player.wallet.Money >= transactionAmount)
+            if(player.Wallet.Money >= transactionAmount)
             {
-                PerformTransaction(player.wallet, transactionAmount);
-                player.inventory.AddCupsToInventory(cupsToPurchase);
+                PerformTransaction(player.Wallet, transactionAmount);
+                player.Inventory.AddCupsToInventory(cupsToPurchase);
             }
         }
 

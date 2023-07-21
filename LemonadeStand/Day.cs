@@ -2,28 +2,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
     internal class Day
     {
-        Weather weather;
-        List<Customer> customers;
+       public Weather Weather { get; set; }
+       public List<Customer> Customers{get; set; }
 
-        public Weather Weather
+        public Day(Weather weather, List<Customer> customers)
         {
-            get
-            {
-                return weather;
-            }
+
+            Weather = weather;
+            Customers = customers;
         }
-        public List<Customer> Customers
+            
+        public bool SimulateDay(Player player)
         {
-            get
+            Console.WriteLine("Weather:" + Weather.Forecast);
+            Console.WriteLine("Temperature:" + Weather.ForecastTemperature + "°c");
+            Console.WriteLine("Number of customers:" + Customers.Count);
+
+            foreach (Customer customer in Customers)
             {
-                return customers;
+                bool purchaseMade = customer.BuyLemonade((int)player.Recipe.Price);
+            
+            if (purchaseMade)
+            
+                player.Wallet.AcceptMoney(player.Recipe.Price);
             }
+           
+                Console.WriteLine("Day simulation completed.");
+            return true;
         }
+        
     }
 }

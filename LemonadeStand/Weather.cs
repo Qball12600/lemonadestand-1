@@ -1,22 +1,25 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
+    //single responsibility principle SOLID
     internal class Weather
     {
-        string condition;
-        int temperature;
-        List<string> weatherconditions;
-        string predictedForecast;
-        
-        this.weatherconditions { "sunny", "cloudy", "rainy", "overcast", "clear" };
+       
+        //Member Variables
+        public string Forecast { get; set; }
+        public int ForecastTemperature { get; set; }
+        public List<string> WeatherConditions { get; set; }
+        public string PredictedForecast { get; set; }
 
-    Random rnd = new Random();
-        int randomIndex = rnd.Next(weatherconditions.Count);
-        Day = weather[randomIndex];
+        //Constructor
+       
+        
     }
 }
