@@ -11,11 +11,12 @@ namespace LemonadeStand
     class Store
     {
         // member variables (HAS A)
-        private double pricePerLemon;
-        private double pricePerSugarCube;
-        private double pricePerIceCube;
-        private double pricePerCup;
+        public double pricePerLemon;
+        public double pricePerSugarCube;
+        public double pricePerIceCube;
+        public double pricePerCup;
 
+      
         // constructor (SPAWNER)
         public Store()
         {
@@ -33,6 +34,11 @@ namespace LemonadeStand
             {
                 player.Wallet.PayMoneyForItems(transactionAmount);
                 player.Inventory.AddLemonsToInventory(lemonsToPurchase);
+                Console.WriteLine($"You bought {lemonsToPurchase} lemons. ");
+            }
+            else
+            {
+                Console.WriteLine("You don't have enough money to buy lemons.");
             }
         }
 
@@ -44,6 +50,11 @@ namespace LemonadeStand
             {
                 PerformTransaction(player.Wallet, transactionAmount);
                 player.Inventory.AddSugarCubesToInventory(sugarToPurchase);
+                Console.WriteLine($"You bought {sugarToPurchase} sugarCubes.");
+            }
+            else
+            {
+                Console.WriteLine("You don't have enough money to buy sugar cubes.");
             }
         }
 
@@ -55,6 +66,11 @@ namespace LemonadeStand
             {
                 PerformTransaction(player.Wallet, transactionAmount);
                 player.Inventory.AddIceCubesToInventory(iceCubesToPurchase);
+                Console.WriteLine($"You bought {iceCubesToPurchase} ice cubes.");
+            }
+            else
+            {
+                Console.WriteLine("You don't have enough money to buy ice cubes.");
             }
         }
 
@@ -66,16 +82,22 @@ namespace LemonadeStand
             {
                 PerformTransaction(player.Wallet, transactionAmount);
                 player.Inventory.AddCupsToInventory(cupsToPurchase);
+                Console.WriteLine($"You bought {cupsToPurchase} cups.");
+            }
+            else
+            {
+                Console.WriteLine("You don't have enough money to buy cups.");
             }
         }
+        
 
-        private double CalculateTransactionAmount(int itemCount, double itemPricePerUnit)
+        public double CalculateTransactionAmount(int itemCount, double itemPricePerUnit)
         {
             double transactionAmount = itemCount * itemPricePerUnit;
             return transactionAmount;
         }
 
-        private void PerformTransaction(Wallet wallet, double transactionAmount)
+        public void PerformTransaction(Wallet wallet, double transactionAmount)
         {
             wallet.PayMoneyForItems(transactionAmount);
         }

@@ -29,6 +29,10 @@ namespace LemonadeStand
         {
             Money += income;
         }
+        public void DisplayMoney()
+        {
+            Console.WriteLine($"Current Money: {Money:c}");
+        }
         
 
     }

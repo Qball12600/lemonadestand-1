@@ -8,6 +8,7 @@
 
             Game lemonadeStandGame = new Game("Your name here.");
             lemonadeStandGame.StartGame();
+            Console.WriteLine("Game over!");
             //lemonadeStandGame.ConfigureDays();
             //lemonadeStandGame.SetNumberOfDaysToPlAY();
             //Create weather object
@@ -20,7 +21,7 @@
             //create player object
             //Player player = new Player("Player:",20.00);
             //create day object passing weather and customers
-             //Day day = new Day(weather, customers);
+            //Day day = new Day(weather, customers);
             // simulate day
             //bool dayResult = day.SimulateDay(player);
             //if (dayResult)
@@ -29,7 +30,7 @@
             //}
             //else
             //{
-               // Console.WriteLine("Simulation failed.");
+            // Console.WriteLine("Simulation failed.");
             //}
             //
         }

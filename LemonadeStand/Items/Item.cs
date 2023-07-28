@@ -17,7 +17,7 @@ namespace LemonadeStand
         public Item(string name)
             {
             Name = name;
-            Price = 0.0;
+            Price = .50;
             }
         // member methods (CAN DO)
         public void SetPrice(double price)
